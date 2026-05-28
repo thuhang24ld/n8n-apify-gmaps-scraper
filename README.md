@@ -41,7 +41,7 @@ The architecture follows a scheduled, event-driven pipeline ensuring seamless da
  └───────────────┘
        │
        ├───► [True: Negative Review]   ──► [Google Sheets Node]  ──► Append to Database
-       │                               ──► [Discord Alert Node] ──► Push Rich Embed Notification
+       │                               ──► [Discord Alert Node] ──► Notification by BOT discord
        │
        └───► [False: Rating > 3★]      ──► [Google Sheets Node]  ──► Append to Database
 ```
