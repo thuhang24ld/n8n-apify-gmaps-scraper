@@ -1,49 +1,67 @@
 # n8n-apify-gmaps-scraper
 Automated daily Google Maps data crawling using n8n workflows and Apify integration.
 
-## Overview
+## 📊 Overview
 
 This project automates the process of collecting Google Maps reviews daily for multiple restaurant and café branches.
 The workflow uses Apify to scrape review data, then processes and monitors the results through n8n automation.
 
-The system is designed to:
+This system empowers customer success and brand management teams to detect operational bottlenecks, mitigate PR risks, and maintain a high service standard through immediate data visibility.
 
-* collect customer reviews automatically
-* detect low-rating reviews
-* store structured data
-* send real-time notifications for operational monitoring
+## 🛠️ Tech Stack & Integration
 
-## Tech Stack
-* n8n
-* Apify
-* Google Sheets
-* Discord Webhook
+* **Data Extraction:** [Apify Store](https://apify.com/) (`apify/google-maps-scraper`)
+* **Orchestration & Workflow Automation:** [n8n](https://n8n.io/) (Self-hosted / Cloud)
+* **Data Warehouse / Storage:** Google Sheets API
+* **Incident Alerting:** Discord Webhooks API
 
-## Features
-* Daily automated Google Maps review scraping
-* Multi-branch review monitoring
-* Low-rating review detection (≤ 3 stars)
-* Automated Google Sheets storage
-* Discord alert notifications
-* Structured JSON and CSV outputs
-* Workflow orchestration with n8n
+## 🚀 Key Features & Operational Capabilities
 
-## Workflow Architecture
-Google Maps
-      ↓
-Apify Review Scraper
-      ↓
-n8n Automation Workflow
-      ↓
-Filter Low Ratings (≤ 3★)
-      ↓
-Google Sheets Database
-      ↓
-Discord Notifications
+* **Daily Automated Google Maps Review Scraping:** Triggered daily via n8n's native scheduler to automate continuous data collection without manual intervention.
+* **Multi-Branch Review Monitoring:** Configured to dynamically track, extract, and consolidate customer feedback across multiple business locations and branches.
+* **Low-Rating Review Detection (≤ 3 Stars):** Utilizes conditional n8n logic to instantly isolate negative feedback, bypassing positive reviews for immediate crisis management.
+* **Automated Google Sheets Storage:** Synchronizes and logs cleaned review metadata systematically to a centralized spreadsheet for permanent data archiving.
+* **Discord Alert Notifications:** Dispatches real-time, actionable Rich Embed alerts directly to operational channels, lowering incident response time.
 
-## Project Structure
-<img width="433" height="385" alt="image" src="https://github.com/user-attachments/assets/67d557b8-105e-469a-8b5c-81375f64f031" />
+## 🏗️ Workflow Architecture
+The architecture follows a scheduled, event-driven pipeline ensuring seamless data transformation without manual intervention:
+```
+[Scheduled Trigger] 
+       │ (Every Daily via Cron)
+       ▼
+ ┌───────────┐      API Request      ┌─────────────┐
+ │    n8n    |──────────────────────►│ Apify Tasks │
+ │  Engine   |◄──────────────────────|   Scraper   │
+ └─────┬─────┘     JSON Dataset      └─────────────┘
+       │
+       ▼
+ ┌───────────────┐
+ │ n8n Node      │  Filter Condition: [stars <= 3]
+ │ (IF/Filter)───│
+ └───────────────┘
+       │
+       ├───► [True: Negative Review]   ──► [Google Sheets Node]  ──► Append to Database
+       │                               ──► [Discord Alert Node] ──► Push Rich Embed Notification
+       │
+       └───► [False: Rating > 3★]      ──► [Google Sheets Node]  ──► Append to Database
+```
 
+## 📂 Repository Structure
+```
+├── apify/
+│   ├── Input.json                         # Production-ready configuration for Apify Actor
+│   ├── actor_config.md                    # Environment setup and API documentation
+│   ├── dataset_Google-Maps-Reviews_...csv # Raw sample dataset for testing/schema mapping
+│   ├── output_sample.json                 # Expected JSON payload from the scraper
+│   └── sample_response_schema.json        # Data schema definitions for target validation
+├── image/
+│   ├── Data_flow.png                      # High-level architecture blueprint
+│   ├── apify_actor.png                    # Apify UI configuration guide
+│   └── output_discord_sample.png          # Production preview of Discord notification embed
+├── workflow/
+│   └── n8n_workflow.json                  # Production-ready n8n workflow deployment file
+└── README.md                              # System documentation
+```
 ## Automation Logic
 
 The n8n workflow automatically:
