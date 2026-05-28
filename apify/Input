@@ -1,0 +1,12 @@
+{
+    "language": "en",
+    "maxReviews": 500,
+    "personalData": true,
+    "reviewsSort": "newest",
+    "reviewsStartDate": "2026-02-07",
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/place/Ch%E1%BA%A1ng+V%E1%BA%A1ng+Rooftop/@10.7937774,106.7323136,17z/data=!4m8!3m7!1s0x3175279c045dcd09:0x263629d70831314b!8m2!3d10.7937774!4d106.7348885!9m1!1b1!16s%2Fg%2F11p069v70_?entry=ttu"
+        }
+    ]
+}
