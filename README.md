@@ -62,19 +62,15 @@ The architecture follows a scheduled, event-driven pipeline ensuring seamless da
 │   └── n8n_workflow.json                  # Production-ready n8n workflow deployment file
 └── README.md                              # System documentation
 ```
-## Automation Logic
+## ⚙️ Deployment & Production Setup
+### 1. Provisioning the Apify Scraper
+- Deploy the ```apify/google-maps-scraper``` Actor inside your Apify Console.
+- Initialize a new Task, switch to the JSON Editor tab, and inject the parameters defined in ```apify/Input.json```.
+### 2. Importing & Activating the n8n Pipeline
+- Open your n8n workspace, navigate to Workflows, and select Import from File using ```workflow/n8n_workflow.json```.
+- Configure credentials for the respective nodes:
+  * **Apify API**: Insert your Apify Personal API Token.
+  * **Google Sheets**: Authenticate via OAuth2 or Service Account to access the target tracking sheet.
+  * **Discord Node** Generate a Discord Webhook URL from your server's channel integration settings and paste it into the Webhook URL parameter field.
+### 3. Turn on the workflow toggle to Active.
 
-The n8n workflow automatically:
-
-1. Executes scheduled scraping tasks
-2. Retrieves Google Maps reviews from Apify
-3. Filters reviews with ratings ≤ 3 stars
-4. Stores data into Google Sheets
-5. Sends Discord alerts for operational follow-up
-
-## Use Cases
-* Restaurant review monitoring
-* Customer experience tracking
-* Operational issue detection
-* Multi-branch reputation management
-* Automated review data collection
