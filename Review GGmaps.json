@@ -1,0 +1,2388 @@
+{
+  "name": "Review GGmaps",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 3
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -528,
+        640
+      ],
+      "id": "f70144cd-67b1-4708-88ec-b702fd414b62",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "n8n review ggmap",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "CVGTN",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.text}}",
+            "publishedAtDate": "={{ $json.publishedAtDate }}",
+            "name": "={{ $json.name }}",
+            "reviewUrl": "={{ $json.reviewerUrl }}",
+            "stars": "={{ $json.stars }}",
+            "reviewImageUrls": "={{ $json.reviewImageUrls }}",
+            "reviewContext": "={{ $json.reviewContext }}",
+            "reviewDetailedRating": "={{ $json.reviewDetailedRating }}",
+            "visitedIn": "={{ $json.visitedIn }}",
+            "reviewerNumberOfReviews": "={{ $json.reviewerNumberOfReviews }}",
+            "isLocalGuide": "={{ $json.isLocalGuide }}",
+            "reviewerId": "={{ $json.reviewerId }}",
+            "reviewerUrl": "={{ $json.reviewerUrl }}",
+            "Cửa hàng": "={{ $json.title }}",
+            "Địa chỉ": "={{ $json.street }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cửa hàng",
+              "displayName": "Cửa hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Địa chỉ",
+              "displayName": "Địa chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAtDate",
+              "displayName": "publishedAtDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewUrl",
+              "displayName": "reviewUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars",
+              "displayName": "stars",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewImageUrls",
+              "displayName": "reviewImageUrls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewContext",
+              "displayName": "reviewContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewDetailedRating",
+              "displayName": "reviewDetailedRating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visitedIn",
+              "displayName": "visitedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerNumberOfReviews",
+              "displayName": "reviewerNumberOfReviews",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isLocalGuide",
+              "displayName": "isLocalGuide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerId",
+              "displayName": "reviewerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerUrl",
+              "displayName": "reviewerUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        -416
+      ],
+      "id": "2ba8080b-7a19-4a7c-8b81-07dda4c475fe",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M16KF04ZM1ZTg5rK",
+          "name": "GG Sheets - NSQ OE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0925683-a978-4009-bf53-b0c092bd356e",
+              "leftValue": "={{ $json.stars }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        -224
+      ],
+      "id": "429c2430-d03f-4829-a75d-cf7cbd754667",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "YOUR_GUILD_ID",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "YOUR_CHANNEL_ID",
+          "mode": "id"
+        },
+        "content": "=🚨 CÓ ĐÁNH GIÁ THẤP MỚI!\n- Cửa hàng: {{ $json.title }}\n- Địa chỉ: {{ $json.street }}\n- Khách hàng: {{ $json.name }}\n- Số sao: {{ $json.stars }} ⭐\n- Nội dung: {{ $json.text }}\n- Link review: {{ $json.reviewUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        368,
+        -224
+      ],
+      "id": "76a58a93-dc6e-4066-ae2a-694943b36f10",
+      "name": "Send a message",
+      "webhookId": "YOUR_WEBHOOK_ID",
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Discord account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51f22dca-60f5-4235-ba9b-58257ff38166",
+              "name": "apikey",
+              "value": "YOUR_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "f31891b0-b94d-4c4b-8e74-6e330d4b4006",
+              "name": "googlemapURL",
+              "value": "https://www.google.com/maps/place/Ch%E1%BA%A1ng+V%E1%BA%A1ng+Rooftop/@10.7880474,106.7202035,1123m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3175279c045dcd09:0x673629d70833314b!8m2!3d10.7880474!4d106.7250691!16s%2Fg%2F11t_jt5snm?entry=ttu&g_ep=EgoyMDI2MDIyMi4wIKXMDSoASAFQAw%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "df751d78-453b-4c3f-9707-26ddd554b9a1",
+              "name": "maxReviews",
+              "value": "9999",
+              "type": "string"
+            },
+            {
+              "id": "8fc280fd-e6ba-41da-b1b4-e8399f954377",
+              "name": "reviewStartDate",
+              "value": "1 day",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        -320
+      ],
+      "id": "9e80e193-4d55-468d-a823-5fa645443bf9",
+      "name": "CVGTN"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51f22dca-60f5-4235-ba9b-58257ff38166",
+              "name": "apikey",
+              "value": "YOUR_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "f31891b0-b94d-4c4b-8e74-6e330d4b4006",
+              "name": "googlemapURL",
+              "value": "https://www.google.com/maps/place/B%E1%BA%A3n+Rau+-+Buffet+L%E1%BA%A9u+Rau+N%E1%BA%A5m/@10.8140927,106.6771383,17z/data=!3m1!4b1!4m6!3m5!1s0x317529abc5d8aca9:0x99f9d16a8883be5c!8m2!3d10.8140874!4d106.6797132!16s%2Fg%2F11ln1cq4_m?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "df751d78-453b-4c3f-9707-26ddd554b9a1",
+              "name": "maxReviews",
+              "value": "9999",
+              "type": "string"
+            },
+            {
+              "id": "8fc280fd-e6ba-41da-b1b4-e8399f954377",
+              "name": "reviewStartDate",
+              "value": "1 day",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        64
+      ],
+      "id": "603df3fa-54fc-4b57-9d37-462dfc9891ac",
+      "name": "Bản Rau"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/compass~google-maps-reviews-scraper/run-sync-get-dataset-items?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"language\": \"en\",\n    \"maxReviews\": {{ $json.maxReviews }},\n    \"personalData\": true,\n    \"reviewsSort\": \"newest\",\n    \"reviewsStartDate\": \"{{ $json.reviewStartDate }}\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.googlemapURL }}\"\n        }\n    ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -80,
+        64
+      ],
+      "id": "4704dd4f-77c5-4685-b323-c6f829d62205",
+      "name": "Scrape Google Reviews1",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0925683-a978-4009-bf53-b0c092bd356e",
+              "leftValue": "={{ $json.stars }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        160
+      ],
+      "id": "473288ae-38da-4e27-bb95-b01f80459ca5",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/compass~google-maps-reviews-scraper/run-sync-get-dataset-items?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"language\": \"en\",\n    \"maxReviews\": {{ $json.maxReviews }},\n    \"personalData\": true,\n    \"reviewsSort\": \"newest\",\n    \"reviewsStartDate\": \"{{ $json.reviewStartDate }}\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.googlemapURL }}\"\n        }\n    ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -80,
+        448
+      ],
+      "id": "77e5bfbe-7cb5-45e4-9835-52b117f742c1",
+      "name": "Scrape Google Reviews2",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51f22dca-60f5-4235-ba9b-58257ff38166",
+              "name": "apikey",
+              "value": "YOUR_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "f31891b0-b94d-4c4b-8e74-6e330d4b4006",
+              "name": "googlemapURL",
+              "value": "https://www.google.com/maps/place/Ch%C3%AAnh+V%C3%AAnh+Rooftop/@10.8014993,106.72661,17z/data=!3m1!4b1!4m6!3m5!1s0x3175270a23f99a09:0x35f42414e5ed2314!8m2!3d10.801494!4d106.7291903!16s%2Fg%2F11n15m_w9r?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "df751d78-453b-4c3f-9707-26ddd554b9a1",
+              "name": "maxReviews",
+              "value": "9999",
+              "type": "string"
+            },
+            {
+              "id": "8fc280fd-e6ba-41da-b1b4-e8399f954377",
+              "name": "reviewStartDate",
+              "value": "1 day",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        448
+      ],
+      "id": "2b7b00b6-9f3d-4dba-b5d1-ff615f55a956",
+      "name": "CHV"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/compass~google-maps-reviews-scraper/run-sync-get-dataset-items?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"language\": \"en\",\n    \"maxReviews\": {{ $json.maxReviews }},\n    \"personalData\": true,\n    \"reviewsSort\": \"newest\",\n    \"reviewsStartDate\": \"{{ $json.reviewStartDate }}\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.googlemapURL }}\"\n        }\n    ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -80,
+        -320
+      ],
+      "id": "e9fa5f7a-f0be-45f9-8b00-bfd0a500d8dc",
+      "name": "Scrape Google Reviews",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/compass~google-maps-reviews-scraper/run-sync-get-dataset-items?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"language\": \"en\",\n    \"maxReviews\": {{ $json.maxReviews }},\n    \"personalData\": true,\n    \"reviewsSort\": \"newest\",\n    \"reviewsStartDate\": \"{{ $json.reviewStartDate }}\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.googlemapURL }}\"\n        }\n    ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -80,
+        832
+      ],
+      "id": "bceaa42a-881e-4489-82d9-050171bc5d3b",
+      "name": "Scrape Google Reviews3"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0925683-a978-4009-bf53-b0c092bd356e",
+              "leftValue": "={{ $json.stars }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        928
+      ],
+      "id": "77bd4af3-6b97-41f0-8773-f0b84544bee9",
+      "name": "If3"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51f22dca-60f5-4235-ba9b-58257ff38166",
+              "name": "apikey",
+              "value": "YOUR_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "f31891b0-b94d-4c4b-8e74-6e330d4b4006",
+              "name": "googlemapURL",
+              "value": "https://www.google.com/maps/place/Th%C6%B0%C6%A1ng+Rooftop/@10.7568392,106.7035126,17z/data=!3m1!4b1!4m6!3m5!1s0x31752faff8a91e2b:0x164ff8103cf9f7cc!8m2!3d10.7568339!4d106.7060929!16s%2Fg%2F11ng59rj4n?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "df751d78-453b-4c3f-9707-26ddd554b9a1",
+              "name": "maxReviews",
+              "value": "9999",
+              "type": "string"
+            },
+            {
+              "id": "8fc280fd-e6ba-41da-b1b4-e8399f954377",
+              "name": "reviewStartDate",
+              "value": "1 day",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        832
+      ],
+      "id": "cfb1cde7-1907-45f3-b20d-82f2f6b0e844",
+      "name": "THU"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/compass~google-maps-reviews-scraper/run-sync-get-dataset-items?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"language\": \"en\",\n    \"maxReviews\": {{ $json.maxReviews }},\n    \"personalData\": true,\n    \"reviewsSort\": \"newest\",\n    \"reviewsStartDate\": \"{{ $json.reviewStartDate }}\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.googlemapURL }}\"\n        }\n    ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -80,
+        1216
+      ],
+      "id": "7c51e7a5-3042-4705-8d1f-6ac995a590b8",
+      "name": "Scrape Google Reviews4"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0925683-a978-4009-bf53-b0c092bd356e",
+              "leftValue": "={{ $json.stars }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        1312
+      ],
+      "id": "f082f59f-3c5d-45d3-9eca-6bcd62828631",
+      "name": "If4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51f22dca-60f5-4235-ba9b-58257ff38166",
+              "name": "apikey",
+              "value": "YOUR_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "f31891b0-b94d-4c4b-8e74-6e330d4b4006",
+              "name": "googlemapURL",
+              "value": "https://www.google.com/maps/place/R%C3%A1ng+Chi%E1%BB%81u+Rooftop/@10.7985335,106.6764149,17z/data=!3m1!4b1!4m6!3m5!1s0x317529ddf4f19253:0x12af982c9d78772b!8m2!3d10.7985282!4d106.6789952!16s%2Fg%2F11mvf41_yw?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "df751d78-453b-4c3f-9707-26ddd554b9a1",
+              "name": "maxReviews",
+              "value": "9999",
+              "type": "string"
+            },
+            {
+              "id": "8fc280fd-e6ba-41da-b1b4-e8399f954377",
+              "name": "reviewStartDate",
+              "value": "1 day",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        1216
+      ],
+      "id": "178e52d3-7f85-4190-a3a2-51f41018190a",
+      "name": "RC"
+    },
+    {
+      "parameters": {
+        "url": "https://api.apify.com/v2/acts/compass~google-maps-reviews-scraper/run-sync-get-dataset-items?",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "token",
+              "value": "={{ $json.apikey }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n    \"language\": \"en\",\n    \"maxReviews\": {{ $json.maxReviews }},\n    \"personalData\": true,\n    \"reviewsSort\": \"newest\",\n    \"reviewsStartDate\": \"{{ $json.reviewStartDate }}\",\n    \"startUrls\": [\n        {\n            \"url\": \"{{ $json.googlemapURL }}\"\n        }\n    ]\n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        -80,
+        1600
+      ],
+      "id": "2b89d47f-f7d3-4ec0-b3e2-86faf1f3b091",
+      "name": "Scrape Google Reviews5"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0925683-a978-4009-bf53-b0c092bd356e",
+              "leftValue": "={{ $json.stars }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        1696
+      ],
+      "id": "5dd052bd-e608-4192-92cf-8ccbbb19ccdd",
+      "name": "If5"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "51f22dca-60f5-4235-ba9b-58257ff38166",
+              "name": "apikey",
+              "value": "YOUR_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "f31891b0-b94d-4c4b-8e74-6e330d4b4006",
+              "name": "googlemapURL",
+              "value": "https://www.google.com/maps/place/Ch%E1%BA%A1ng+V%E1%BA%A1ng+Rooftop/@10.804436,106.7065578,17z/data=!3m1!4b1!4m6!3m5!1s0x317529f25f70f1ed:0x5a4e4d0092da8043!8m2!3d10.8044307!4d106.7091381!16s%2Fg%2F11h_y7s2z9?entry=ttu&g_ep=EgoyMDI2MDIyMy4wIKXMDSoASAFQAw%3D%3D",
+              "type": "string"
+            },
+            {
+              "id": "df751d78-453b-4c3f-9707-26ddd554b9a1",
+              "name": "maxReviews",
+              "value": "9999",
+              "type": "string"
+            },
+            {
+              "id": "8fc280fd-e6ba-41da-b1b4-e8399f954377",
+              "name": "reviewStartDate",
+              "value": "1 day",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -304,
+        1600
+      ],
+      "id": "00050393-e84b-4b1e-85a6-2fae875d3efe",
+      "name": "CVGHX"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "n8n review ggmap",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 272535599,
+          "mode": "list",
+          "cachedResultName": "PVD",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.text}}",
+            "publishedAtDate": "={{ $json.publishedAtDate }}",
+            "name": "={{ $json.name }}",
+            "reviewUrl": "={{ $json.reviewerUrl }}",
+            "stars": "={{ $json.stars }}",
+            "reviewImageUrls": "={{ $json.reviewImageUrls }}",
+            "reviewContext": "={{ $json.reviewContext }}",
+            "reviewDetailedRating": "={{ $json.reviewDetailedRating }}",
+            "visitedIn": "={{ $json.visitedIn }}",
+            "reviewerNumberOfReviews": "={{ $json.reviewerNumberOfReviews }}",
+            "isLocalGuide": "={{ $json.isLocalGuide }}",
+            "reviewerId": "={{ $json.reviewerId }}",
+            "reviewerUrl": "={{ $json.reviewerUrl }}",
+            "Cửa hàng": "={{ $json.title }}",
+            "Địa chỉ": "={{ $json.street }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Month",
+              "displayName": "Month",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Cửa hàng",
+              "displayName": "Cửa hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Địa chỉ",
+              "displayName": "Địa chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAtDate",
+              "displayName": "publishedAtDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewUrl",
+              "displayName": "reviewUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars",
+              "displayName": "stars",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewImageUrls",
+              "displayName": "reviewImageUrls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewContext",
+              "displayName": "reviewContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewDetailedRating",
+              "displayName": "reviewDetailedRating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visitedIn",
+              "displayName": "visitedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerNumberOfReviews",
+              "displayName": "reviewerNumberOfReviews",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isLocalGuide",
+              "displayName": "isLocalGuide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerId",
+              "displayName": "reviewerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerUrl",
+              "displayName": "reviewerUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        -32
+      ],
+      "id": "2578c9af-1f1a-43bf-9926-34178087fd78",
+      "name": "Append row in sheet2",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M16KF04ZM1ZTg5rK",
+          "name": "GG Sheets - NSQ OE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "n8n review ggmap",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2067854425,
+          "mode": "list",
+          "cachedResultName": "THU",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.text}}",
+            "publishedAtDate": "={{ $json.publishedAtDate }}",
+            "name": "={{ $json.name }}",
+            "reviewUrl": "={{ $json.reviewerUrl }}",
+            "stars": "={{ $json.stars }}",
+            "reviewImageUrls": "={{ $json.reviewImageUrls }}",
+            "reviewContext": "={{ $json.reviewContext }}",
+            "reviewDetailedRating": "={{ $json.reviewDetailedRating }}",
+            "visitedIn": "={{ $json.visitedIn }}",
+            "reviewerNumberOfReviews": "={{ $json.reviewerNumberOfReviews }}",
+            "isLocalGuide": "={{ $json.isLocalGuide }}",
+            "reviewerId": "={{ $json.reviewerId }}",
+            "reviewerUrl": "={{ $json.reviewerUrl }}",
+            "Cửa hàng": "={{ $json.title }}",
+            "Địa chỉ": "={{ $json.street }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cửa hàng",
+              "displayName": "Cửa hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Địa chỉ",
+              "displayName": "Địa chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAtDate",
+              "displayName": "publishedAtDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewUrl",
+              "displayName": "reviewUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars",
+              "displayName": "stars",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewImageUrls",
+              "displayName": "reviewImageUrls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewContext",
+              "displayName": "reviewContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewDetailedRating",
+              "displayName": "reviewDetailedRating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visitedIn",
+              "displayName": "visitedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerNumberOfReviews",
+              "displayName": "reviewerNumberOfReviews",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isLocalGuide",
+              "displayName": "isLocalGuide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerId",
+              "displayName": "reviewerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerUrl",
+              "displayName": "reviewerUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        736
+      ],
+      "id": "7ff8b490-3254-4c60-81cf-c3ed6791d467",
+      "name": "Append row in sheet3",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M16KF04ZM1ZTg5rK",
+          "name": "GG Sheets - NSQ OE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "n8n review ggmap",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 177003246,
+          "mode": "list",
+          "cachedResultName": "RC",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.text}}",
+            "publishedAtDate": "={{ $json.publishedAtDate }}",
+            "name": "={{ $json.name }}",
+            "reviewUrl": "={{ $json.reviewerUrl }}",
+            "stars": "={{ $json.stars }}",
+            "reviewImageUrls": "={{ $json.reviewImageUrls }}",
+            "reviewContext": "={{ $json.reviewContext }}",
+            "reviewDetailedRating": "={{ $json.reviewDetailedRating }}",
+            "visitedIn": "={{ $json.visitedIn }}",
+            "reviewerNumberOfReviews": "={{ $json.reviewerNumberOfReviews }}",
+            "isLocalGuide": "={{ $json.isLocalGuide }}",
+            "reviewerId": "={{ $json.reviewerId }}",
+            "reviewerUrl": "={{ $json.reviewerUrl }}",
+            "Cửa hàng": "={{ $json.title }}",
+            "Địa chỉ": "={{ $json.street }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cửa hàng",
+              "displayName": "Cửa hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Địa chỉ",
+              "displayName": "Địa chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAtDate",
+              "displayName": "publishedAtDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewUrl",
+              "displayName": "reviewUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars",
+              "displayName": "stars",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewImageUrls",
+              "displayName": "reviewImageUrls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewContext",
+              "displayName": "reviewContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewDetailedRating",
+              "displayName": "reviewDetailedRating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visitedIn",
+              "displayName": "visitedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerNumberOfReviews",
+              "displayName": "reviewerNumberOfReviews",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isLocalGuide",
+              "displayName": "isLocalGuide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerId",
+              "displayName": "reviewerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerUrl",
+              "displayName": "reviewerUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        1120
+      ],
+      "id": "bd706d5f-b0e5-4c45-a6eb-9ebc8ed87838",
+      "name": "Append row in sheet4",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M16KF04ZM1ZTg5rK",
+          "name": "GG Sheets - NSQ OE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "n8n review ggmap",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 448127441,
+          "mode": "list",
+          "cachedResultName": "CVGHX",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.text}}",
+            "publishedAtDate": "={{ $json.publishedAtDate }}",
+            "name": "={{ $json.name }}",
+            "reviewUrl": "={{ $json.reviewerUrl }}",
+            "stars": "={{ $json.stars }}",
+            "reviewImageUrls": "={{ $json.reviewImageUrls }}",
+            "reviewContext": "={{ $json.reviewContext }}",
+            "reviewDetailedRating": "={{ $json.reviewDetailedRating }}",
+            "visitedIn": "={{ $json.visitedIn }}",
+            "reviewerNumberOfReviews": "={{ $json.reviewerNumberOfReviews }}",
+            "isLocalGuide": "={{ $json.isLocalGuide }}",
+            "reviewerId": "={{ $json.reviewerId }}",
+            "reviewerUrl": "={{ $json.reviewerUrl }}",
+            "Cửa hàng": "={{ $json.title }}",
+            "Địa chỉ": "={{ $json.street }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cửa hàng",
+              "displayName": "Cửa hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Địa chỉ",
+              "displayName": "Địa chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAtDate",
+              "displayName": "publishedAtDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewUrl",
+              "displayName": "reviewUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars",
+              "displayName": "stars",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewImageUrls",
+              "displayName": "reviewImageUrls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewContext",
+              "displayName": "reviewContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewDetailedRating",
+              "displayName": "reviewDetailedRating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visitedIn",
+              "displayName": "visitedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerNumberOfReviews",
+              "displayName": "reviewerNumberOfReviews",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isLocalGuide",
+              "displayName": "isLocalGuide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerId",
+              "displayName": "reviewerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerUrl",
+              "displayName": "reviewerUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        1504
+      ],
+      "id": "7030a88f-77eb-4599-a211-3c66f148f392",
+      "name": "Append row in sheet5",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M16KF04ZM1ZTg5rK",
+          "name": "GG Sheets - NSQ OE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "YOUR_GUILD_ID",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "YOUR_CHANNEL_ID",
+          "mode": "id"
+        },
+        "content": "=🚨 CÓ ĐÁNH GIÁ THẤP MỚI!\n- Cửa hàng: {{ $json.title }}\n- Địa chỉ: {{ $json.street }}\n- Khách hàng: {{ $json.name }}\n- Số sao: {{ $json.stars }} ⭐\n- Nội dung: {{ $json.text }}\n- Link review: {{ $json.reviewUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        368,
+        160
+      ],
+      "id": "af4b1f04-b928-414f-bdbb-6da2105b8489",
+      "name": "Send a message2",
+      "webhookId": "YOUR_WEBHOOK_ID",
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Discord account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "YOUR_GUILD_ID",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "YOUR_CHANNEL_ID",
+          "mode": "id"
+        },
+        "content": "=🚨 CÓ ĐÁNH GIÁ THẤP MỚI!\n- Cửa hàng: {{ $json.title }}\n- Địa chỉ: {{ $json.street }}\n- Khách hàng: {{ $json.name }}\n- Số sao: {{ $json.stars }} ⭐\n- Nội dung: {{ $json.text }}\n- Link review: {{ $json.reviewUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        368,
+        928
+      ],
+      "id": "7598795e-08af-4305-b008-1202d4dde9ab",
+      "name": "Send a message3",
+      "webhookId": "YOUR_WEBHOOK_ID",
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Discord account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "YOUR_GUILD_ID",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "YOUR_CHANNEL_ID",
+          "mode": "id"
+        },
+        "content": "=🚨 CÓ ĐÁNH GIÁ THẤP MỚI!\n- Cửa hàng: {{ $json.title }}\n- Địa chỉ: {{ $json.street }}\n- Khách hàng: {{ $json.name }}\n- Số sao: {{ $json.stars }} ⭐\n- Nội dung: {{ $json.text }}\n- Link review: {{ $json.reviewUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        368,
+        1312
+      ],
+      "id": "cc2690c6-5403-4ad1-8b70-76eb6d180ef3",
+      "name": "Send a message4",
+      "webhookId": "YOUR_WEBHOOK_ID",
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Discord account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "YOUR_GUILD_ID",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "YOUR_CHANNEL_ID",
+          "mode": "id"
+        },
+        "content": "=🚨 CÓ ĐÁNH GIÁ THẤP MỚI!\n- Cửa hàng: {{ $json.title }}\n- Địa chỉ: {{ $json.street }}\n- Khách hàng: {{ $json.name }}\n- Số sao: {{ $json.stars }} ⭐\n- Nội dung: {{ $json.text }}\n- Link review: {{ $json.reviewUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        368,
+        1696
+      ],
+      "id": "24486353-15d7-4f19-ade2-030e0774e014",
+      "name": "Send a message6",
+      "webhookId": "YOUR_WEBHOOK_ID",
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Discord account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "n8n review ggmap",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1968932922,
+          "mode": "list",
+          "cachedResultName": "CHV",
+          "cachedResultUrl": "YOUR_SHEET_URL"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "text": "={{ $json.text}}",
+            "publishedAtDate": "={{ $json.publishedAtDate }}",
+            "name": "={{ $json.name }}",
+            "reviewUrl": "={{ $json.reviewerUrl }}",
+            "stars": "={{ $json.stars }}",
+            "reviewImageUrls": "={{ $json.reviewImageUrls }}",
+            "reviewContext": "={{ $json.reviewContext }}",
+            "reviewDetailedRating": "={{ $json.reviewDetailedRating }}",
+            "visitedIn": "={{ $json.visitedIn }}",
+            "reviewerNumberOfReviews": "={{ $json.reviewerNumberOfReviews }}",
+            "isLocalGuide": "={{ $json.isLocalGuide }}",
+            "reviewerId": "={{ $json.reviewerId }}",
+            "reviewerUrl": "={{ $json.reviewerUrl }}",
+            "Cửa hàng": "={{ $json.title }}",
+            "Địa chỉ": "={{ $json.street }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Cửa hàng",
+              "displayName": "Cửa hàng",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Địa chỉ",
+              "displayName": "Địa chỉ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "text",
+              "displayName": "text",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "publishedAtDate",
+              "displayName": "publishedAtDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewUrl",
+              "displayName": "reviewUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "stars",
+              "displayName": "stars",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewImageUrls",
+              "displayName": "reviewImageUrls",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewContext",
+              "displayName": "reviewContext",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewDetailedRating",
+              "displayName": "reviewDetailedRating",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "visitedIn",
+              "displayName": "visitedIn",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerNumberOfReviews",
+              "displayName": "reviewerNumberOfReviews",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "isLocalGuide",
+              "displayName": "isLocalGuide",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerId",
+              "displayName": "reviewerId",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "reviewerUrl",
+              "displayName": "reviewerUrl",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        352
+      ],
+      "id": "25634ff6-d33c-4452-b4c9-972880956280",
+      "name": "Append row in sheet6",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "M16KF04ZM1ZTg5rK",
+          "name": "GG Sheets - NSQ OE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "b0925683-a978-4009-bf53-b0c092bd356e",
+              "leftValue": "={{ $json.stars }}",
+              "rightValue": 3,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        144,
+        544
+      ],
+      "id": "18d767e0-fa17-4e43-b435-25c2336989e9",
+      "name": "If6"
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "guildId": {
+          "__rl": true,
+          "value": "YOUR_GUILD_ID",
+          "mode": "id"
+        },
+        "channelId": {
+          "__rl": true,
+          "value": "YOUR_CHANNEL_ID",
+          "mode": "id"
+        },
+        "content": "=🚨 CÓ ĐÁNH GIÁ THẤP MỚI!\n- Cửa hàng: {{ $json.title }}\n- Địa chỉ: {{ $json.street }}\n- Khách hàng: {{ $json.name }}\n- Số sao: {{ $json.stars }} ⭐\n- Nội dung: {{ $json.text }}\n- Link review: {{ $json.reviewUrl }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [
+        368,
+        544
+      ],
+      "id": "c26f2dea-ca0e-4200-8226-df410ff498ac",
+      "name": "Send a message5",
+      "webhookId": "YOUR_WEBHOOK_ID",
+      "credentials": {
+        "discordOAuth2Api": {
+          "id": "YOUR_CREDENTIAL_ID",
+          "name": "Discord account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "CVGTN",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Bản Rau",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CHV",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "THU",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RC",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "CVGHX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "CVGTN": {
+      "main": [
+        [
+          {
+            "node": "Scrape Google Reviews",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Bản Rau": {
+      "main": [
+        [
+          {
+            "node": "Scrape Google Reviews1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Google Reviews1": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Send a message2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Google Reviews2": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CHV": {
+      "main": [
+        [
+          {
+            "node": "Scrape Google Reviews2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Google Reviews": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Google Reviews3": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Send a message3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "THU": {
+      "main": [
+        [
+          {
+            "node": "Scrape Google Reviews3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Google Reviews4": {
+      "main": [
+        [
+          {
+            "node": "If4",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If4": {
+      "main": [
+        [
+          {
+            "node": "Send a message4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RC": {
+      "main": [
+        [
+          {
+            "node": "Scrape Google Reviews4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Google Reviews5": {
+      "main": [
+        [
+          {
+            "node": "If5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If5": {
+      "main": [
+        [
+          {
+            "node": "Send a message6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "CVGHX": {
+      "main": [
+        [
+          {
+            "node": "Scrape Google Reviews5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Send a message5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet2": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner",
+    "timezone": "Asia/Ho_Chi_Minh"
+  },
+  "versionId": "96faf76f-480e-4dcc-baf0-8fe97e23088e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f8b3a8242b1d2bcd25163344a3c6bd500d9a12c317241e370b7a08e52ac92723"
+  },
+  "id": "ZSLabDnXQIgvyaKW",
+  "tags": []
+}
