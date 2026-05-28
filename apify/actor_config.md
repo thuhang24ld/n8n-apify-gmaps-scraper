@@ -4,7 +4,7 @@
 compass/google-maps-reviews-scraper
 
 ## Purpose
-Automate daily scraping of Google Maps reviews for multiple restaurant and café branches.
+Automate daily scraping of Google Maps reviews for multiple restaurant and café branches. [image](https://github.com/thuhang24ld/n8n-apify-gmaps-scraper/blob/main/image/apify_actor.png?raw=true)
 
 ## Extracted Fields
 - reviewerName
