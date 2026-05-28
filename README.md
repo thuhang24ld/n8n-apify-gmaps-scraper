@@ -36,8 +36,8 @@ The architecture follows a scheduled, event-driven pipeline ensuring seamless da
        │
        ▼
  ┌───────────────┐
- │ n8n Node      │  Filter Condition: [stars <= 3]
- │ (IF/Filter)───│
+ │   n8n Node    │  Filter Condition: [stars <= 3]
+ │  (IF/Filter)  │
  └───────────────┘
        │
        ├───► [True: Negative Review]   ──► [Google Sheets Node]  ──► Append to Database
