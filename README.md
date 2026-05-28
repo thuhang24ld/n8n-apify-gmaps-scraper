@@ -71,6 +71,7 @@ The architecture follows a scheduled, event-driven pipeline ensuring seamless da
 - Configure credentials for the respective nodes:
   * **Apify API**: Insert your Apify Personal API Token.
   * **Google Sheets**: Authenticate via OAuth2 or Service Account to access the target tracking sheet.
-  * **Discord Node** Generate a Discord Webhook URL from your server's channel integration settings and paste it into the Webhook URL parameter field.
-### 3. Turn on the workflow toggle to Active.
+  * **Discord Node** Discord OAuth2 credentials, Discord Bot integration or Discord Webhook URL
+### 3. Activate the Workflow
+Turn the workflow status to Active in n8n to enable scheduled automation and monitoring.
 
